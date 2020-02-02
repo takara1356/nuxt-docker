@@ -4,7 +4,7 @@ services:
     container_name: nuxt.js
     build:
       context: ./docker/nuxt.js
-      dockerfile: Dokerfile
+      dockerfile: Dockerfile
     ports:
       - 3001:3001
     volumes:
@@ -14,7 +14,7 @@ services:
     # docker run の「-it」オプションに当たるもの。
     # これを指定しないと、コンテナを起動してもすぐ終了してしまう
     tty: true
-    stdin_open: 
+    stdin_open: true
     # Hot Module Replacement (HMR) is enable for virtual box.
     environment:
       - CHOKIDAR_USEPOLLING=true
