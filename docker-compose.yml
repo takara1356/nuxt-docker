@@ -8,7 +8,7 @@ services:
     ports:
       - 3001:3001
     volumes:
-      - ./docker/nuxt.js/src:/src:caced
+      - ./docker/nuxt.js/src:/src
       # ホストと同期しない
       - /src/app/node_modules
     # docker run の「-it」オプションに当たるもの。
