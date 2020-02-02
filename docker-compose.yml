@@ -1,0 +1,20 @@
+version: '3'
+services:
+  nuxt.js:
+    container_name: nuxt.js
+    build:
+      context: ./docker/nuxt.js
+      dockerfile: Dokerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - ./docker/nuxt.js/src:/src:caced
+      # ホストと同期しない
+      - /src/app/node_modules
+    # docker run の「-it」オプションに当たるもの。
+    # これを指定しないと、コンテナを起動してもすぐ終了してしまう
+    tty: true
+    stdin_open: 
+    # Hot Module Replacement (HMR) is enable for virtual box.
+    environment:
+      - CHOKIDAR_USEPOLLING=true
