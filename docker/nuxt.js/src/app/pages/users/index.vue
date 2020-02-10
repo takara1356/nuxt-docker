@@ -16,13 +16,26 @@ export default {
         name: ''
       }
     },
-  methods:{
-    submit: function() {
-      axios.post('http://localhost:3000/users'), {
-        name: this.name
+  // methods:{
+  //   submit: function() {
+  //     axios.post('http://localhost:3000/users'), {
+  //       name: this.name
+  //     }
+  //   }
+  // },
+      methods: {
+      submit: function() {
+        axios.post('http://localhost:3000/users',{
+          name: this.name
+        })
+        .then(function (response) {
+          console.log(response);
+        }.bind(this))
+        .catch(function (error) {
+          console.log(error);
+        });
       }
-    }
-  }
+    },
 
 }
 </script>
